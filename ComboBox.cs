@@ -112,6 +112,7 @@ namespace Xamarin.Forms.ComboBox
             //Entry used for filtering list view
             _entry = new Entry();
             _entry.Margin = new Thickness(0);
+            _entry.Keyboard = Keyboard.Create(KeyboardFlags.None);
             _entry.Focused += (sender, args) => _listView.IsVisible = true;
             _entry.Unfocused += (sender, args) => _listView.IsVisible = false;
 

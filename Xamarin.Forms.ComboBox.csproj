@@ -8,8 +8,8 @@
     <Description>Simple Xamarin Forms combo box with search option</Description>
     <PackageProjectUrl>https://github.com/Inspirare-LLC/Xamarin.Forms.ComboBox</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Inspirare-LLC/Xamarin.Forms.ComboBox</RepositoryUrl>
-    <Version>1.0.0.2</Version>
-    <AssemblyVersion>1.0.0.2</AssemblyVersion>
+    <Version>1.0.0.3</Version>
+    <AssemblyVersion>1.0.0.3</AssemblyVersion>
   </PropertyGroup>
 
   <ItemGroup>
