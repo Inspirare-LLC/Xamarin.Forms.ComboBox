@@ -82,6 +82,14 @@ namespace Xamarin.Forms.ComboBox
             set { SetValue(ItemTemplateProperty, value); }
         }
 
+        public static readonly BindableProperty EntryDisplayPathProperty = BindableProperty.Create(nameof(EntryDisplayPath), typeof(string), typeof(ComboBox), defaultValue: "");
+
+        public string EntryDisplayPath
+        {
+            get { return (string)GetValue(EntryDisplayPathProperty); }
+            set { SetValue(EntryDisplayPathProperty, value); }
+        }
+
         public event EventHandler<SelectedItemChangedEventArgs> SelectedItemChanged;
 
         protected virtual void OnSelectedItemChanged(SelectedItemChangedEventArgs e)
@@ -140,7 +148,10 @@ namespace Xamarin.Forms.ComboBox
                 if (!_supressSelectedItemFiltering)
                 {
                     _supressFiltering = true;
-                    _entry.Text = args.SelectedItem?.ToString();
+
+                    var selectedItem = args.SelectedItem;
+                    _entry.Text = !String.IsNullOrEmpty(EntryDisplayPath) && selectedItem != null ? selectedItem.GetType().GetProperty(EntryDisplayPath).GetValue(selectedItem, null).ToString() : selectedItem?.ToString();
+
                     _supressFiltering = false;
                     _listView.IsVisible = false;
                     OnSelectedItemChanged(args);
