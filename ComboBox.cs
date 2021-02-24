@@ -100,7 +100,7 @@ namespace Xamarin.Forms.ComboBox
 
         public event EventHandler<TextChangedEventArgs> TextChanged;
 
-        protected virtual void OnSelectedItemChanged(TextChangedEventArgs e)
+        protected virtual void OnTextChanged(TextChangedEventArgs e)
         {
             EventHandler<TextChangedEventArgs> handler = TextChanged;
             handler?.Invoke(this, e);
@@ -130,7 +130,7 @@ namespace Xamarin.Forms.ComboBox
 
                 _listView.IsVisible = true;
 
-                OnSelectedItemChanged(args);
+                OnTextChanged(args);
             };
 
             //List view - used to display search options
