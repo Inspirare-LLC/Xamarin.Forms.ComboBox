@@ -169,5 +169,15 @@ namespace Xamarin.Forms.ComboBox
             Children.Add(_listView);
             Children.Add(boxView);
         }
+
+        public new bool Focus()
+        {
+            return _entry.Focus();
+        }
+
+        public new void Unfocus()
+        {
+            _entry.Unfocus();
+        }
     }
 }
