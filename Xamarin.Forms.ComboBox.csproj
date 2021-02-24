@@ -2,6 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Jonas Petraška</Authors>
+    <Company>Inspirare, UAB</Company>
+    <Description>Simple Xamarin Forms combo box with search option</Description>
+    <PackageProjectUrl>https://github.com/Inspirare-LLC/Xamarin.Forms.ComboBox</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Inspirare-LLC/Xamarin.Forms.ComboBox</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
