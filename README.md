@@ -36,7 +36,6 @@ private void ComboBox_TextChanged(object sender, TextChangedEventArgs e)
     else
         SearchBar.ItemsSource = _items;
 }
-
 `
 
 Where `_items` is a local reference to full, unfiltered items source.
