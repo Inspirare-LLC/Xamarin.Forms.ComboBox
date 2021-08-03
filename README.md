@@ -15,7 +15,8 @@ Install it in shared code project.
 
 Create the control like so:
 
-`<ComboBox x:Name="ComboBox" ItemsSource="{Binding ItemsSource}" Placeholder="{Binding Placeholder}" SelectedItem="{Binding SelectedItem}" SelectedItemChanged="ComboBox_SelectedItemChanged" TextChanged="ComboBox_TextChanged" Visual="Material">
+```
+<ComboBox x:Name="ComboBox" ItemsSource="{Binding ItemsSource}" Placeholder="{Binding Placeholder}" SelectedItem="{Binding SelectedItem}" SelectedItemChanged="ComboBox_SelectedItemChanged" TextChanged="ComboBox_TextChanged" Visual="Material">
     <ComboBox.ItemTemplate>
         <DataTemplate>
             <ViewCell>
@@ -23,17 +24,20 @@ Create the control like so:
             </ViewCell>
         </DataTemplate>
     </ComboBox.ItemTemplate>
-</ComboBox>`
+</ComboBox>
+```
 
 Hookup text changed event to perform filtering, ex.:
 
-`private void ComboBox_TextChanged(object sender, TextChangedEventArgs e)
+```
+private void ComboBox_TextChanged(object sender, TextChangedEventArgs e)
 {
     if (!String.IsNullOrEmpty(e.NewTextValue))
-        SearchBar.ItemsSource = _items.Where(x => x.ToLower().StartsWith(e.NewTextValue.ToLower())).OrderBy(x => x).ToList();
+        ComboBox.ItemsSource = _items.Where(x => x.ToLower().StartsWith(e.NewTextValue.ToLower())).OrderBy(x => x).ToList();
     else
-        SearchBar.ItemsSource = _items;
-}`
+        ComboBox.ItemsSource = _items;
+}
+```
 
 Where `_items` is a local reference to full, unfiltered items source.
 
