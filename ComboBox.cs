@@ -20,6 +20,12 @@ namespace Xamarin.Forms.ComboBox
             comboBox._listView.HeightRequest = (double)newVal;
         });
 
+        public double ListViewHeightRequest
+        {
+            get { return (double)GetValue(ListViewHeightRequestProperty); }
+            set { SetValue(ListViewHeightRequestProperty, value); }
+        }
+
         public static readonly BindableProperty ItemsSourceProperty = BindableProperty.Create(nameof(ItemsSource), typeof(IEnumerable), typeof(ComboBox), defaultValue: null, propertyChanged: (bindable, oldVal, newVal) => {
             var comboBox = (ComboBox)bindable;
             comboBox._listView.ItemsSource = (IEnumerable)newVal;
