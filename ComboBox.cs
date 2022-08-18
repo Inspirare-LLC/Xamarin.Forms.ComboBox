@@ -15,6 +15,18 @@ namespace Xamarin.Forms.ComboBox
         private bool _supressSelectedItemFiltering;
 
         //Bindable properties
+        public static readonly BindableProperty EntryFontSizeProperty = BindableProperty.Create(nameof(EntryFontSize), typeof(double), typeof(ComboBox), defaultValue: null, propertyChanged: (bindable, oldVal, newVal) => {
+            var comboBox = (ComboBox)bindable;
+            comboBox._entry.FontSize = (double)newVal;
+        });
+
+        [TypeConverter(typeof(FontSizeConverter))]
+        public double EntryFontSize
+        {
+            get { return (double)GetValue(EntryFontSizeProperty); }
+            set { SetValue(EntryFontSizeProperty, value); }
+        }
+        
         public static readonly BindableProperty ItemsSourceProperty = BindableProperty.Create(nameof(ItemsSource), typeof(IEnumerable), typeof(ComboBox), defaultValue: null, propertyChanged: (bindable, oldVal, newVal) => {
             var comboBox = (ComboBox)bindable;
             comboBox._listView.ItemsSource = (IEnumerable)newVal;
