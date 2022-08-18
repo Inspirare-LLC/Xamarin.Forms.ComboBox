@@ -22,8 +22,8 @@ namespace Xamarin.Forms.ComboBox
 
         public Color EntryBackgroundColor
         {
-            get { return (Color)GetValue(ListViewHeightRequestProperty); }
-            set { SetValue(ListViewHeightRequestProperty, value); }
+            get { return (Color)GetValue(EntryBackgroundColorProperty); }
+            set { SetValue(EntryBackgroundColorProperty, value); }
         }
         
         public static readonly BindableProperty ItemsSourceProperty = BindableProperty.Create(nameof(ItemsSource), typeof(IEnumerable), typeof(ComboBox), defaultValue: null, propertyChanged: (bindable, oldVal, newVal) => {
