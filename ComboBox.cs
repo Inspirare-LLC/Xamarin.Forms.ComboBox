@@ -15,6 +15,11 @@ namespace Xamarin.Forms.ComboBox
         private bool _supressSelectedItemFiltering;
 
         //Bindable properties
+        public static readonly BindableProperty ListViewHeightRequestProperty = BindableProperty.Create(nameof(ItemsSource), typeof(double), typeof(ComboBox), defaultValue: null, propertyChanged: (bindable, oldVal, newVal) => {
+            var comboBox = (ComboBox)bindable;
+            comboBox._listView.HeightRequest = (double)newVal;
+        });
+
         public static readonly BindableProperty ItemsSourceProperty = BindableProperty.Create(nameof(ItemsSource), typeof(IEnumerable), typeof(ComboBox), defaultValue: null, propertyChanged: (bindable, oldVal, newVal) => {
             var comboBox = (ComboBox)bindable;
             comboBox._listView.ItemsSource = (IEnumerable)newVal;
