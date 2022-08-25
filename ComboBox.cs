@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using static Xamarin.Forms.VisualMarker;
 
@@ -15,6 +15,18 @@ namespace Xamarin.Forms.ComboBox
         private bool _supressSelectedItemFiltering;
 
         //Bindable properties
+
+        public static readonly BindableProperty EntryBackgroundColorProperty = BindableProperty.Create(nameof(EntryBackgroundColor), typeof(Color), typeof(ComboBox), defaultValue: null, propertyChanged: (bindable, oldVal, newVal) => {
+            var comboBox = (ComboBox)bindable;
+            comboBox._entry.BackgroundColor = (Color)newVal;
+        });
+
+        public Color EntryBackgroundColor
+        {
+            get { return (Color)GetValue(EntryBackgroundColorProperty); }
+            set { SetValue(EntryBackgroundColorProperty, value); }
+        }
+
         public static readonly BindableProperty EntryFontSizeProperty = BindableProperty.Create(nameof(EntryFontSize), typeof(double), typeof(ComboBox), defaultValue: null, propertyChanged: (bindable, oldVal, newVal) => {
             var comboBox = (ComboBox)bindable;
             comboBox._entry.FontSize = (double)newVal;
