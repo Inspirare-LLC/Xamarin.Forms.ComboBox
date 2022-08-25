@@ -15,6 +15,16 @@ namespace Xamarin.Forms.ComboBox
         private bool _supressSelectedItemFiltering;
 
         //Bindable properties
+        public static readonly BindableProperty ListViewHeightRequestProperty = BindableProperty.Create(nameof(ListViewHeightRequest), typeof(double), typeof(ComboBox), defaultValue: null, propertyChanged: (bindable, oldVal, newVal) => {
+            var comboBox = (ComboBox)bindable;
+            comboBox._listView.HeightRequest = (double)newVal;
+        });
+
+        public double ListViewHeightRequest
+        {
+            get { return (double)GetValue(ListViewHeightRequestProperty); }
+            set { SetValue(ListViewHeightRequestProperty, value); }
+        }
 
         public static readonly BindableProperty EntryBackgroundColorProperty = BindableProperty.Create(nameof(EntryBackgroundColor), typeof(Color), typeof(ComboBox), defaultValue: null, propertyChanged: (bindable, oldVal, newVal) => {
             var comboBox = (ComboBox)bindable;
