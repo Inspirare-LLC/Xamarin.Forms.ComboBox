@@ -168,6 +168,7 @@ namespace Xamarin.Forms.ComboBox
                     _supressFiltering = false;
                     _listView.IsVisible = false;
                     OnSelectedItemChanged(args);
+                    _entry.Unfocus();
                 }
             };
 
