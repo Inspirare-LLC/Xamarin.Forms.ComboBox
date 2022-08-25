@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using static Xamarin.Forms.VisualMarker;
 
@@ -15,6 +15,7 @@ namespace Xamarin.Forms.ComboBox
         private bool _supressSelectedItemFiltering;
 
         //Bindable properties
+
         public static readonly BindableProperty EntryBackgroundColorProperty = BindableProperty.Create(nameof(EntryBackgroundColor), typeof(Color), typeof(ComboBox), defaultValue: null, propertyChanged: (bindable, oldVal, newVal) => {
             var comboBox = (ComboBox)bindable;
             comboBox._entry.BackgroundColor = (Color)newVal;
@@ -24,6 +25,18 @@ namespace Xamarin.Forms.ComboBox
         {
             get { return (Color)GetValue(EntryBackgroundColorProperty); }
             set { SetValue(EntryBackgroundColorProperty, value); }
+        }
+
+        public static readonly BindableProperty EntryFontSizeProperty = BindableProperty.Create(nameof(EntryFontSize), typeof(double), typeof(ComboBox), defaultValue: null, propertyChanged: (bindable, oldVal, newVal) => {
+            var comboBox = (ComboBox)bindable;
+            comboBox._entry.FontSize = (double)newVal;
+        });
+
+        [TypeConverter(typeof(FontSizeConverter))]
+        public double EntryFontSize
+        {
+            get { return (double)GetValue(EntryFontSizeProperty); }
+            set { SetValue(EntryFontSizeProperty, value); }
         }
         
         public static readonly BindableProperty ItemsSourceProperty = BindableProperty.Create(nameof(ItemsSource), typeof(IEnumerable), typeof(ComboBox), defaultValue: null, propertyChanged: (bindable, oldVal, newVal) => {
@@ -167,6 +180,7 @@ namespace Xamarin.Forms.ComboBox
                     _supressFiltering = false;
                     _listView.IsVisible = false;
                     OnSelectedItemChanged(args);
+                    _entry.Unfocus();
                 }
             };
 
